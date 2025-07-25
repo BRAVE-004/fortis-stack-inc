@@ -14,7 +14,7 @@
     </button>
     <!-- Logo moved to right end -->
     <div class="absolute right-6 top-1/2 -translate-y-1/2">
-      <img src="/src/assets/fort.jpg" alt="Company Logo" class="w-20 h-20 object-cover rounded-full" />
+      <img :src="fortImg" alt="Company Logo" class="w-20 h-20 object-cover rounded-full" />
     </div>
   </div>
   <!-- Overlay Menu: sibling, not child, of nav bar -->
@@ -73,6 +73,7 @@
 
 <script setup>
 import { ref, watch, nextTick } from 'vue'
+import fortImg from '../assets/fort.jpg'
 const isOpen = ref(false)
 const menuItems = ['Home', 'Services', 'Skills', 'About us', 'Projects', 'Contact us']
 const revealedCount = ref(0)

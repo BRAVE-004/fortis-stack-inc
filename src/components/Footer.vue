@@ -13,7 +13,7 @@
             stunning designs, and innovative solutions that drive results.
           </p>
           <div class="flex space-x-4 items-center">
-            <img src="/src/assets/fort.jpg" alt="Company Logo" class="w-16 h-16 rounded-full shadow-lg object-cover" />
+            <img :src="fortImg" alt="Company Logo" class="w-16 h-16 rounded-full shadow-lg object-cover" />
             <span class="ml-2 font-bold text-white text-xl">Fortuna Adiuvat</span>
           </div>
         </div>
@@ -77,6 +77,10 @@
     </div>
   </footer>
 </template>
+
+<script setup>
+import fortImg from '../assets/fort.jpg'
+</script>
 
 <style scoped>
 .glow-text {
