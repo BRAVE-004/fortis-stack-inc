@@ -13,5 +13,5 @@
 
 <script setup>
 import HeroContent from './HeroContent.vue'
-import heroImg from '../../assets/team A.jpg'
+import heroImg from '../../assets/teamA.jpg'
 </script>
