@@ -1,0 +1,26 @@
+html, body, #app {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+}
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.hero-glow {
+  box-shadow: 0 0 40px 10px #ffe60055, 0 0 16px 4px #17bbab55, 0 2px 8px 0 #0C086633;
+  border-color: #ffe600cc;
+  transition: box-shadow 0.3s, border-color 0.3s;
+}
+.hero-glow:hover {
+  box-shadow: 0 0 60px 18px #ffe600cc, 0 0 32px 8px #17bbabcc, 0 2px 8px 0 #0C0866;
+  border-color: #ffe600;
+}
+
+.hero-float {
+  animation: hero-float 3.5s ease-in-out infinite;
+}
+@keyframes hero-float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-18px); }
+}
