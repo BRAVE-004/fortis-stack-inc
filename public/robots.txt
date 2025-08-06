@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://fortis-stack.pages.dev/sitemap.xml

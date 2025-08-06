@@ -3,7 +3,7 @@
     <div class="max-w-2xl w-full mx-auto text-left">
       <h1 class="text-2xl md:text-3xl font-extrabold mb-3 glitchy-title" data-text="About Us">About Us</h1>
       <p class="text-base md:text-lg text-gray-200 mb-4">
-        <span class="text-primary font-bold">Fortis</span> is a forward-thinking software startup dedicated to empowering businesses and entrepreneurs with innovative digital solutions. We believe in the power of technology to transform ideas into impactful realities.
+        <span class="text-primary font-bold">Fortis-Stack</span> is a forward-thinking software startup dedicated to empowering businesses and entrepreneurs with innovative digital solutions. We believe in the power of technology to transform ideas into impactful realities.
       </p>
       <div class="bg-white/10 rounded-2xl shadow-xl p-4 md:p-6 border border-white/20 mb-4">
         <h2 class="text-lg font-bold text-primary mb-2">Our Role in Your Project</h2>

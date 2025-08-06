@@ -6,15 +6,15 @@
         <!-- Brand Section -->
         <div class="col-span-1 md:col-span-2">
           <h3 class="font-bold text-white mb-4 glow-text text-lg">
-            FORTIS INC.
+            FORTIS-STACK INC.
           </h3>
           <p class="text-gray-300 text-lg mb-6 max-w-md">
             Transforming ideas into digital reality. Specializing in modern web development, 
             stunning designs, and innovative solutions that drive results.
           </p>
-          <div class="flex space-x-4 items-center">
-            <img :src="fortImg" alt="Company Logo" class="w-16 h-16 rounded-full shadow-lg object-cover" />
-            <span class="ml-2 font-bold text-white text-xl">Fortuna Adiuvat</span>
+          <div class="flex space-x-1 items-center">
+            <span class="font-bold text-white text-xl">FORTIS FORTUNA ADIUVAT</span>
+            <img :src="fortImg" alt="Company Logo" class="w-28 h-28 object-contain" />
           </div>
         </div>
 
@@ -67,7 +67,7 @@
       <!-- Bottom Bar -->
       <div class="border-t border-white/10 pt-8 flex flex-col md:flex-row justify-between items-center">
         <p class="text-gray-400 text-sm">
-          © 2025 FORTIS INC. All rights reserved.
+          © 2025 FORTIS-STACK INC. All rights reserved.
         </p>
         <div class="flex space-x-6 mt-4 md:mt-0">
           <router-link to="/privacy" class="text-gray-400 hover:text-primary transition-colors text-sm">Privacy Policy</router-link>
@@ -79,7 +79,7 @@
 </template>
 
 <script setup>
-import fortImg from '../assets/fort.jpg'
+import fortImg from '../assets/fort12.png'
 </script>
 
 <style scoped>

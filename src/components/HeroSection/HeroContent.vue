@@ -1,7 +1,7 @@
 <template>
   <section class="min-h-[60vh] flex items-center relative z-10">
     <div class="max-w-2xl px-2 sm:px-4 py-6 sm:py-8 text-left flex flex-col items-start">
-      <h1 class="w-full text-3xl md:text-4xl lg:text-5xl font-extrabold mb-2 sm:mb-3 break-words whitespace-pre-line leading-tight text-left">
+      <h1 class="w-full text-3xl md:text-4xl lg:text-5xl font-extrabold mb-2 sm:mb-3 break-words whitespace-pre-line leading-tight text-left overflow-visible">
         <div class="w-full mb-1 text-left">
           <span :class="['text-primary', typingLine === 1 ? 'typewriter' : '', 'align-baseline', 'inline']">{{ displayedText1 }}</span>
         </div>
@@ -12,7 +12,7 @@
           glitchActive ? 'glitch' : '',
             glitchBurst ? 'glitch-burst' : '',
             'align-baseline', 'inline'
-          ]" data-text="We are Fortis.">{{ displayedText2 }}</span>
+          ]" data-text="We are Fortis-Stack.">{{ displayedText2 }}</span>
         </div>
       </h1>
       <h2 class="w-full text-lg md:text-xl font-semibold mb-2 text-secondary break-words whitespace-pre-line leading-tight text-left">
@@ -45,8 +45,8 @@
 <script setup>
 import { ref, onMounted, onUnmounted } from 'vue'
 const fullText1 = 'Hello,';
-const fullText2 = 'We are Fortis.';
-const fullText3 = 'A Software Startup';
+const fullText2 = 'We are Fortis-Stack.';
+const fullText3 = 'A Software Startup;';
 const displayedText1 = ref('')
 const displayedText2 = ref('')
 const displayedText3 = ref('')
@@ -111,9 +111,11 @@ onMounted(() => {
     typingLine.value = 2
     if (j <= fullText2.length) {
       displayedText2.value = fullText2.slice(0, j)
+      console.log('Typing progress:', j, '/', fullText2.length, 'Text:', displayedText2.value)
       j++
       setTimeout(type2, 100)
     } else {
+      console.log('Finished typing:', displayedText2.value)
       setTimeout(type3, 400)
     }
   }
@@ -142,9 +144,11 @@ onMounted(() => {
 .typewriter {
   border-right: 2px solid #ffe600;
   white-space: nowrap;
-  overflow: hidden;
+  overflow: visible;
   display: inline;
   animation: blink-caret 0.8s step-end infinite;
+  min-width: 0;
+  word-wrap: break-word;
 }
 @keyframes blink-caret {
   0%, 100% { border-color: #ffe600; }
@@ -155,6 +159,8 @@ onMounted(() => {
   display: inline-block;
   color: inherit;
   animation: glitch-skew 2s infinite linear alternate-reverse;
+  overflow: visible;
+  white-space: nowrap;
 }
 .glitch::before,
 .glitch::after {
@@ -162,16 +168,19 @@ onMounted(() => {
   position: absolute;
   left: 0;
   width: 100%;
-  overflow: hidden;
+  overflow: visible;
   color: #ffe600;
   z-index: 1;
   clip-path: inset(0 0 50% 0);
   opacity: 0.7;
+  white-space: nowrap;
 }
 .glitch::after {
   color: #17bbab;
   clip-path: inset(50% 0 0 0);
   opacity: 0.7;
+  overflow: visible;
+  white-space: nowrap;
 }
 .glitch::before {
   animation: glitch-top 2s infinite linear alternate-reverse;
