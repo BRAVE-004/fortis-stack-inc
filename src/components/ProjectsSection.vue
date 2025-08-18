@@ -1,7 +1,7 @@
 <template>
   <section class="py-10 sm:py-20 relative z-10">
     <h2 class="text-2xl sm:text-4xl md:text-5xl font-extrabold text-center mb-8 sm:mb-12 projects-title-glow">
-      <span class="glitchy-title" data-text="My Projects">My Projects</span>
+      <span class="glitchy-title" data-text="Our Projects">Our Projects</span>
     </h2>
     <div class="relative max-w-full sm:max-w-5xl mx-auto px-2 sm:px-0">
       <button @click="prev" class="carousel-btn carousel-btn-left flex items-center justify-center w-8 h-8 sm:w-10 sm:h-10 rounded-full bg-white/20 hover:bg-yellow-300 transition mr-2" aria-label="Previous">
