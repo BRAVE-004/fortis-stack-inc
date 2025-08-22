@@ -82,8 +82,9 @@ class CustomShaderMaterial extends THREE.ShaderMaterial {
 }
 
 const container = ref(null);
-let scene,camera,renderer,material,mesh,clock;
-
+let scene, camera, renderer, material, mesh, clock;
+let animationId = null;
+let isPageVisible = true;
 
 onMounted(() => {
   // Create a scene
@@ -96,7 +97,9 @@ onMounted(() => {
   renderer = new THREE.WebGLRenderer({antialias:true, alpha:true});
   renderer.setClearColor(0x000000, 0);
   renderer.setSize(window.innerWidth, window.innerHeight);
-  renderer.setPixelRatio(window.devicePixelRatio);
+  // Cap pixel ratio on mobile to save battery/avoid jank
+  const effectiveDPR = window.innerWidth < 768 ? Math.min(window.devicePixelRatio, 1.2) : Math.min(window.devicePixelRatio, 2);
+  renderer.setPixelRatio(effectiveDPR);
   container.value.appendChild(renderer.domElement);
    
   material = new CustomShaderMaterial();
@@ -108,13 +111,21 @@ onMounted(() => {
   scene.add(mesh);
   clock = new THREE.Clock();
 
-  window.addEventListener('resize', onWindowResize,);
+  window.addEventListener('resize', onWindowResize);
+  document.addEventListener('visibilitychange', onVisibilityChange);
   animate();
 });
 onUnmounted(() => {
-  window.removeEventListener('resize', onWindowResize,);
-  renderer.dispose();
-  
+  window.removeEventListener('resize', onWindowResize);
+  document.removeEventListener('visibilitychange', onVisibilityChange);
+  if (animationId) cancelAnimationFrame(animationId);
+  if (mesh) {
+    mesh.geometry?.dispose();
+  }
+  if (material) {
+    material.dispose();
+  }
+  renderer?.dispose();
 })
 
 function onWindowResize(){
@@ -124,21 +135,28 @@ function onWindowResize(){
   camera.aspect = aspect;
   camera.updateProjectionMatrix();
   renderer.setSize(window.innerWidth, window.innerHeight);
-  renderer.setPixelRatio(window.devicePixelRatio);
+  const effectiveDPR = window.innerWidth < 768 ? Math.min(window.devicePixelRatio, 1.2) : Math.min(window.devicePixelRatio, 2);
+  renderer.setPixelRatio(effectiveDPR);
   mesh.geometry.dispose();
   mesh.geometry = new THREE.PlaneGeometry(planeWidth, planeHeight);
   material.uniforms.resolution.value.set(window.innerWidth, window.innerHeight);
   
 }
  
-function animate(){
-  requestAnimationFrame(animate);
+function onVisibilityChange() {
+  isPageVisible = document.visibilityState === 'visible';
+  if (isPageVisible && !animationId) {
+    animate();
+  } else if (!isPageVisible && animationId) {
+    cancelAnimationFrame(animationId);
+    animationId = null;
+  }
+}
 
+function animate(){
+  animationId = requestAnimationFrame(animate);
+  if (!isPageVisible) return;
   material.uniforms.time.value = clock.getElapsedTime();
   renderer.render(scene, camera);
 }
 </script>
-
-
-
- 
