@@ -15,5 +15,7 @@ export default defineConfig({
   },
   define: {
     global: 'globalThis'
-  }
+  },
+  base: './',   // THIS fixes the blank page on Cloudflare
+
 })
