@@ -7,6 +7,18 @@ html, body, #app {
 @tailwind components;
 @tailwind utilities;
 
+/* Prevent horizontal scroll/gutter on mobile */
+html, body {
+  width: 100%;
+  overflow-x: hidden;
+  overscroll-behavior-x: none;
+  touch-action: pan-y;
+}
+#app { overflow-x: hidden; }
+
+/* Ensure media do not overflow the viewport */
+img, svg, video, canvas { max-width: 100%; height: auto; }
+
 .hero-glow {
   box-shadow: 0 0 40px 10px #ffe60055, 0 0 16px 4px #17bbab55, 0 2px 8px 0 #0C086633;
   border-color: #ffe600cc;

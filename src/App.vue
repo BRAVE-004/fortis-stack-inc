@@ -1,6 +1,6 @@
 
 <template>
-  <div>
+  <div class="relative overflow-x-hidden max-w-[100vw]">
     <Nav />
     <transition :name="$route.meta.transition ? 'page-' + $route.meta.transition : 'page-fade'" mode="out-in">
       <router-view />
